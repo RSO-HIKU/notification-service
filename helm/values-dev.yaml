@@ -1,0 +1,14 @@
+replicaCount: 1
+
+image:
+  repository: notification-service
+  tag: dev-latest
+  pullPolicy: Never
+
+service:
+  clusterIP:
+    port: 8088
+
+  nodePort:
+    port: 8088
+    nodePort: 30088
