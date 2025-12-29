@@ -12,3 +12,8 @@ service:
   nodePort:
     port: 8088
     nodePort: 30088
+
+flyway:
+  image:
+    repository: notification-service-migrator
+    tag: "dev"
