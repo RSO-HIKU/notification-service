@@ -5,11 +5,22 @@ image:
   tag: dev-latest
   pullPolicy: Never
 
+database:
+  enabled: true
+  host: postgres.database.svc.cluster.local
+  port: "5432"
+  name: hikudb
+  schema: notification_service
+
+azure:
+  enabled: false
+
 service:
   clusterIP:
     port: 8088
 
   nodePort:
+    enabled: true
     port: 8088
     nodePort: 30088
 
@@ -17,3 +28,7 @@ flyway:
   image:
     repository: notification-service-migrator
     tag: "dev"
+
+jwtAuth:
+  issuer: "http://localhost:8080/auth/realms/hiku-dev"
+  jwksUri: "http://keycloak.keycloak.svc.cluster.local:8080/auth/realms/hiku-dev/protocol/openid-connect/certs"
